@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider } from "react-router-dom";
+import router from "./router/Router";
+import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Provider store={store}>
+        <RouterProvider router={router} />;
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            // Define default options
+            className: "",
+            duration: 3000,
+            style: {
+              background: "#363636",
+              color: "#fff",
+            },
+          }}
+        />
+      </Provider>
+    </>
   );
 }
-
-export default App;
