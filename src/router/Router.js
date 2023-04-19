@@ -25,7 +25,6 @@ const privateRouters = {
     { path: "/blogs", element: <div>Blogs</div> },
   ],
 };
-const a = 1;
 
 const router = createBrowserRouter([{ ...privateRouters }, { ...authRouters }]);
 
